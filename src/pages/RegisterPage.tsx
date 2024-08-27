@@ -33,7 +33,7 @@ function RegisterPage() {
     try {
       await user.register(data);
       console.log(data);
-      //navigate("/library-items");
+      navigate("/library-items");
     } catch (error: any) {
       console.log(error);
       if (error.response.status === 400) {

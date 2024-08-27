@@ -1,9 +1,9 @@
 import axios from "axios";
-// import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { User, UserLogin } from "../types";
 
 const TOKEN_KEY = "token";
-const API_BASEURL = "http://localhost:8586/api/auth";
+const API_BASEURL = "http://localhost:7577/api/auth";
 //const CREDENTIALS = "?username=leila&accessCode=TnYtEb";
 
 axios.defaults.headers.common["x-auth-token"] = getJwt();
@@ -31,14 +31,14 @@ function getCurrentUser() {
 
   if (!token) return null;
 
-  //   try {
-  //     const user = jwtDecode<User>(token);
+  try {
+    const user = jwtDecode<User>(token);
 
-  //     return user;
-  //   } catch (error) {
-  //     localStorage.removeItem(TOKEN_KEY);
-  //     return null;
-  //   }
+    return user;
+  } catch (error) {
+    localStorage.removeItem(TOKEN_KEY);
+    return null;
+  }
 }
 
 export default {

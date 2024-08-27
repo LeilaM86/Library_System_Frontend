@@ -12,7 +12,7 @@ interface LibraryItemFormData {
   borrower?: string;
 }
 
-const API_BASEURL = "http://localhost:8586/api/library-items";
+const API_BASEURL = "http://localhost:7577/api/library-items";
 //const CREDENTIALS = "?username=leila&accessCode=TnYtEb&auth=true";
 
 function getAuthToken(): string | null {
