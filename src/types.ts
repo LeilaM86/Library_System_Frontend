@@ -29,7 +29,7 @@ export interface LibraryItemBase {
   categoryId: string;
   abbreviation: string;
   borrower?: string;
-  borrowDate?: Date | string;
+  borrowDate?: Date | string | null;
   categoryName?: string;
 }
 
