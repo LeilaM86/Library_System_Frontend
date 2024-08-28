@@ -183,7 +183,7 @@ const LibraryItemFormPage: React.FC = () => {
         })
         .catch((error) => {
           console.error("Error checking out item:", error);
-          setError("Failed to check out item");
+          setError("Failed to check out item. Please login");
         });
     } else {
       setError("Item is not borrowable or invalid item type");

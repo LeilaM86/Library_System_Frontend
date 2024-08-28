@@ -24,7 +24,7 @@ const LibraryItemList: React.FC<LibraryItemListProps> = ({
             </h5>
             <p className="mb-1">
               <strong>Type:</strong> {item.type} <br />
-              <strong>Category:</strong> {item.categoryName} <br />
+              <strong>Category:</strong> {item.categoryId} <br />
               <strong>Status:</strong>{" "}
               {item.isBorrowable && item.borrower ? (
                 <>
