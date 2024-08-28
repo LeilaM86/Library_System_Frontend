@@ -7,7 +7,6 @@ interface CategoryFormData {
 }
 
 const API_BASEURL = "http://localhost:7577/api/categories";
-
 //const CREDENTIALS = "?username=leila&accessCode=TnYtEb&auth=true";
 
 function getAuthToken(): string | null {
