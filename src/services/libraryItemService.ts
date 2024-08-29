@@ -1,5 +1,6 @@
 import axios from "axios";
 import { LibraryItemType } from "../types";
+import { BASE_URL } from "../constans";
 
 interface LibraryItemFormData {
   id?: string;
@@ -12,7 +13,7 @@ interface LibraryItemFormData {
   borrower?: string;
 }
 
-const API_BASEURL = "http://localhost:7577/api/library-items";
+const API_BASEURL = `${BASE_URL}/api/library-items`;
 //const CREDENTIALS = "?username=leila&accessCode=TnYtEb&auth=true";
 
 function getAuthToken(): string | null {

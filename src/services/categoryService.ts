@@ -1,12 +1,13 @@
 import axios from "axios";
 import { Category } from "../types";
+import { BASE_URL } from "../constans";
 
 interface CategoryFormData {
   id?: string;
   name: string;
 }
 
-const API_BASEURL = "http://localhost:7577/api/categories";
+const API_BASEURL = `${BASE_URL}/api/categories`;
 //const CREDENTIALS = "?username=leila&accessCode=TnYtEb&auth=true";
 
 function getAuthToken(): string | null {
