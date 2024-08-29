@@ -1,6 +1,7 @@
-import React from "react";
-import { LibraryItemType } from "../types";
+import React, { useState, useEffect } from "react";
+import { LibraryItemType, Category } from "../types";
 import { Link } from "react-router-dom";
+import { getCategories } from "../services/categoryService";
 
 interface LibraryItemListProps {
   items: LibraryItemType[];
@@ -8,9 +9,32 @@ interface LibraryItemListProps {
 }
 
 const LibraryItemList: React.FC<LibraryItemListProps> = ({
-  items,
+  items = [],
   onDelete,
 }) => {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await getCategories();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  const categoryMap = new Map(
+    categories.map((category) => [category.id, category.name])
+  );
+
+  items.forEach((item) => {
+    item.categoryName = categoryMap.get(item.categoryId) || "Unknown";
+  });
+
   return (
     <div className="list-group">
       {items.map((item) => (
@@ -24,7 +48,7 @@ const LibraryItemList: React.FC<LibraryItemListProps> = ({
             </h5>
             <p className="mb-1">
               <strong>Type:</strong> {item.type} <br />
-              <strong>Category:</strong> {item.categoryId} <br />
+              <strong>Category:</strong> {item.categoryName} <br />
               <strong>Status:</strong>{" "}
               {item.isBorrowable && item.borrower ? (
                 <>

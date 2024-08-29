@@ -56,7 +56,7 @@ function LibraryPage() {
       );
       setItems(itemsWithAbbreviation);
     } catch (err) {
-      setError("Failed to delete item");
+      setError("Failed to delete item. Please login");
     }
   };
 

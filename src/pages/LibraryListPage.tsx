@@ -47,7 +47,7 @@ const LibraryListPage: React.FC = () => {
                 {item.title} {item.abbreviation}
               </td>
               <td>{item.type}</td>
-              <td>{item.categoryId}</td>
+              <td>{item.categoryName}</td>
               <td>{item.isBorrowable ? "Yes" : "No"}</td>
               <td>{item.borrower ? item.borrower : "-"}</td>
 

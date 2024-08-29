@@ -62,7 +62,9 @@ const CategoryFormPage: React.FC = () => {
       setCurrentCategory(null);
       setError(null);
     } catch (error) {
-      setError("Failed to delete category. Please login");
+      setError(
+        "Failed to delete category. Please login or the category cannot be removed when used"
+      );
     }
   };
 
